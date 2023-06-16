@@ -38,10 +38,18 @@ const UserModal = {
   },
 
   deleteUser: (id) => {
-    return new Promise((resolve) => {
-      const deletedUserArray = users.filter((user) => user.userId != id);
-      users = deletedUserArray;
-      resolve(usersList);
+    return new Promise((resolve, reject) => {
+      const index = users.findIndex((user) => user.userId == id);
+      try {
+        if (index !== -1) {
+          users.splice(index, 1);
+          resolve(users);
+        } else {
+          resolve(users);
+        }
+      } catch (err) {
+        reject(err);
+      }
     });
   },
 };
