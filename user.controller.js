@@ -1,26 +1,26 @@
-const Users = require("./user.modal");
+const User = require("./user.model");
 
-const usersController = {
-  getUsers: (req, res) => {
-    const users = Users.fetchAllUsers();
+const userController = {
+  getUsers: async (req, res) => {
+    const users = await User.fetchAllUsers();
     res.send(users);
   },
-  createUser: (req, res) => {
+  createUser: async (req, res) => {
     const data = req.body;
-    const users = Users.addNewUser(data);
-    return res.send(users);
+    const users = await User.addNewUser(data);
+    res.send(users);
   },
-  updateUser: (req, res) => {
+  updateUser: async (req, res) => {
     const id = req.params.id;
     const data = req.body;
-    const users = Users.updateUserData(id, data);
-    return res.send(users);
+    const users = await User.updateUserData(id, data);
+    res.send(users);
   },
-  deleteUser: (req, res) => {
+  deleteUser: async (req, res) => {
     const id = req.params.id;
-    const users = Users.deleteUser(id);
-    return res.send(users);
+    const users = await User.deleteUser(id);
+    res.send(users);
   },
 };
 
-module.exports = usersController;
+module.exports = userController;
