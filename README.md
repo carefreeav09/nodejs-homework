@@ -1,2 +1,2 @@
 # nodejs-homework
-Learning nodeJs Professionally. 
+Practicing SOLID concepts for Node/Express.
