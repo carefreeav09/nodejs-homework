@@ -19,3 +19,5 @@ app.use("/api/v1", appRouter);
 app.listen(port, () => {
   console.log(`server is up baby at localhost ${port}`);
 });
+
+//TODO: setup logger, JWT and middlewares -> also free commit lol
