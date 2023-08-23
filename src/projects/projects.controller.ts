@@ -27,23 +27,15 @@ const projectsController = {
 
     createProject: async (req: Request, res: Response) => {
         const data = req.body;
-        const project = await Projects.create(data);
+        console.log(data, 'data');
+        console.log('\n\n\n\n\n', req.files, '\n\n\n\n\n')
+        // const project = await Projects.create(data);
         res.status(200).json({
             message: "Success",
-            data: project,
+            data: 'nothing for now',
             code: 200
         });
     },
-
-    handleFileUpload: async (req: Request, res: Response) => {
-        console.log(req.file, 'file');
-
-        res.status(200).json({
-            message: "File uploaded",
-            data: 'nothing yet',
-            code: 200
-        })
-    }
 };
 
 export default projectsController;

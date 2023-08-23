@@ -11,9 +11,12 @@ projectsRouter.get("/", projectsController.getProjects);
 projectsRouter.get("/:id", projectsController.getSingleProjectDetails);
 
 //
-projectsRouter.post("/", projectsController.createProject);
-
-//
-projectsRouter.post("/upload", upload().single('file'), projectsController.handleFileUpload);
+projectsRouter.post("/", upload().fields([{
+    name: 'thumbnail',
+    maxCount: 1
+}, {
+    name: 'images',
+    maxCount: 8
+}]), projectsController.createProject);
 
 export default projectsRouter;
