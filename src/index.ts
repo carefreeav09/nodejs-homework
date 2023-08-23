@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-
 import appRouter from './config/app.router';
 import initiateDatabase from "./config/app.database";
 
@@ -10,8 +9,12 @@ initiateDatabase();
 
 app.use(express.json());
 
+//
+app.use('/uploads', express.static('uploads'));
+app.use('/file', express.static('file'));
+
 app.get("/", (req: Request, res: Response) => {
-  res.send("yo homework day 2");
+  res.send("Success");
 });
 
 app.use("/api/v1", appRouter);

@@ -33,6 +33,16 @@ const projectsController = {
             data: project,
             code: 200
         });
+    },
+
+    handleFileUpload: async (req: Request, res: Response) => {
+        console.log(req.file, 'file');
+
+        res.status(200).json({
+            message: "File uploaded",
+            data: 'nothing yet',
+            code: 200
+        })
     }
 };
 
