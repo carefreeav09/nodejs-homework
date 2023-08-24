@@ -20,6 +20,3 @@ projectsRouter.post("/", upload().fields([{
 }]), projectsController.createProject);
 
 export default projectsRouter;
-
-
-// git fake commit : no electricity, have to do this sadly
