@@ -1,10 +1,17 @@
 import multer from 'multer';
 import fs from 'fs';
-import express from 'express';
 import cloudinary from 'cloudinary';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
 const cloudinaryV2 = cloudinary.v2;
+
+cloudinaryV2.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+})
 
 
 interface IFileUploader {
@@ -14,8 +21,8 @@ interface IFileUploader {
 class FileUploader implements IFileUploader {
     private storage = multer.diskStorage({
         destination: async (_req, _file, cb) => {
-
             try {
+                //@ts-ignore
                 const result = await cloudinaryV2.uploader.upload(_file.path, (error, result) => {
                     console.log(error, 'rrors');
                 });

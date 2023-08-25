@@ -27,8 +27,6 @@ const projectsController = {
 
     createProject: async (req: Request, res: Response) => {
         const data = req.body;
-        console.log(data, 'data');
-        console.log('\n\n\n\n\n', req.files, '\n\n\n\n\n')
         // const project = await Projects.create(data);
         res.status(200).json({
             message: "Success",
