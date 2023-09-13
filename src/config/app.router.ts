@@ -7,4 +7,6 @@ const router = express.Router();
 router.use('/user', userRouter);
 router.use('/projects', projectRouter);
 
+router.get('/health', (req: express.Request, res: express.Response) => res.send('OK'))
+
 export default router;
