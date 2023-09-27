@@ -7,6 +7,12 @@ const router = express.Router();
 router.use('/user', userRouter);
 router.use('/projects', projectRouter);
 
-router.get('/health', (req: express.Request, res: express.Response) => res.send('OK'))
+router.get('/health', (req: express.Request, res: express.Response) => {
+    res.status(200).json({
+        message: "Success",
+        data: 'GREAT SUCCESS BABY',
+        code: 200
+    });
+})
 
 export default router;

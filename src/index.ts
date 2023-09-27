@@ -2,13 +2,15 @@ import express, { Request, Response } from "express";
 import appRouter from './config/app.router';
 import initiateDatabase from "./config/app.database";
 
+import cors from 'cors';
+
 const port = 5000;
 const app = express();
 
 initiateDatabase();
 
 app.use(express.json());
-
+app.use(cors())
 //
 app.use('/uploads', express.static('uploads'));
 app.use('/file', express.static('file'));
