@@ -27,7 +27,9 @@ const projectsController = {
 
     createProject: async (req: Request, res: Response) => {
         const data = req.body;
-        // const project = await Projects.create(data);
+        const files = req.files;
+
+        const project = await Projects.create(data, files);
         res.status(200).json({
             message: "Success",
             data: 'nothing for now',
